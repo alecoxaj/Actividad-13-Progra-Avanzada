@@ -88,4 +88,33 @@ def mostrar_todos():
         for curso in est["cursos"]:
             print(" -", curso, ":", est["cursos"][curso])
 
+while True:
+    print("MENÚ")
+    print("1. Agregar estudiante")
+    print("2. Agregar curso con nota")
+    print("3. Consultar estudiante")
+    print("4. Calcular promedio")
+    print("5. Verificar aprobación")
+    print("6. Mostrar todos los estudiantes")
+    print("7. Salir")
 
+    option = input("Selecciona una opción (1-7): ")
+
+    match option:
+        case "1":
+            agregar_estudiante()
+        case "2":
+            agregar_curso()
+        case "3":
+            consultar_estudiante()
+        case "4":
+            calcular_promedio()
+        case "5":
+            verificar_aprobacion()
+        case "6":
+            mostrar_todos()
+        case "7":
+            print("Programa finalizado. Saliendo...")
+            break
+        case _:
+            print("¡Opción inválida! Inténtalo nuevamente.")
