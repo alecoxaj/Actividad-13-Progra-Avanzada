@@ -44,4 +44,21 @@ def consultar_estudiante():
     else:
         print("Estudiante no encontrado")
 
+def calcular_promedio():
+    print("--Calcular promedio--")
+    idest = input("Ingresa el ID de estudiante: ")
+    if idest in estudiantes:
+        cursos = estudiantes[idest]["cursos"]
+        suma = 0
+        total = 0
+        for c in cursos:
+            suma += cursos[c]
+            total += 1
+        if total > 0:
+            promedio = suma / total
+            print("El promedio es:", promedio)
+    else:
+        print("Estudiante no encontrado")
+
+
 
