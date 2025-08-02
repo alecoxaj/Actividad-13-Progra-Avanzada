@@ -79,7 +79,7 @@ def verificar_aprobacion():
                 print(f"{est['nombre']} (ID {idest}) - NO aprueba todos los cursos.")
 
 def mostrar_todos():
-    print("--Mostrar todos los estudiantes--")
+    print("--Mostrar todos los estudiantes-- ")
     for id_est in estudiantes:
         est = estudiantes[id_est]
         print(f"ID: {id_est} - {est['nombre']} - {est['carrera']}")
