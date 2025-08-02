@@ -80,5 +80,12 @@ def verificar_aprobacion():
     else:
         print("Estudiante no encontrado")
 
+def mostrar_todos():
+    print("--Mostrar todos los estudiantes--")
+    for idest in estudiantes:
+        est = estudiantes[idest]
+        print(f"ID: {idest}, Nombre: {est["nombre"]}, Carrera: {est["carrera"]}")
+        for curso in est["cursos"]:
+            print(" -", curso, ":", est["cursos"][curso])
 
 
