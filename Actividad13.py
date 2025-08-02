@@ -60,5 +60,25 @@ def calcular_promedio():
     else:
         print("Estudiante no encontrado")
 
+def verificar_aprobacion():
+    print("--Verificar si aprueba--")
+    idest = input("Ingresa el ID de estudiante: ")
+    if idest in estudiantes:
+        cursos = estudiantes[idest]["cursos"]
+        if not cursos:
+            print("No tiene cursos registrados")
+            return
+        todos_aprobados = True
+        for c in cursos:
+            if cursos[c] < 61:
+                todos_aprobados = False
+                break
+        if todos_aprobados:
+            print("El estudiante aprueba todos los cursos")
+        else:
+            print("El estudiante NO APRUEBA todos los cursos")
+    else:
+        print("Estudiante no encontrado")
+
 
 
