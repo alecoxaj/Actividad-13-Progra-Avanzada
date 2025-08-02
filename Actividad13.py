@@ -31,5 +31,17 @@ def agregar_curso():
     except:
         print("¡Nota inválida!")
 
+def consultar_estudiante():
+    print("--Consulta de estudiantes--")
+    idest = input("Ingresa el ID del estudiante: ")
+    if idest in estudiantes:
+        est = estudiantes[idest]
+        print("Nombre:", est["nombre"])
+        print("Carrera:", est["carrera"])
+        print("Cursos y notas de", est["nombre"])
+        for curso in est["cursos"]:
+            print("-", curso, ":", est["cursos"][curso])
+    else:
+        print("Estudiante no encontrado")
 
 
