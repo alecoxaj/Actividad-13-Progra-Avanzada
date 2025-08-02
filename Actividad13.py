@@ -88,6 +88,14 @@ def mostrar_todos():
         for curso in est["cursos"]:
             print(" -", curso, ":", est["cursos"][curso])
 
+def guardado():
+    print("\n--Guardado--")
+    for idest in estudiantes:
+        est = estudiantes[idest]
+        print(f"{idest}|{est['nombre']}|{est['carrera']}")
+        for curso in est["cursos"]:
+            print(f"{idest};{curso};{est['cursos'][curso]}")
+    print("Datos Guardados y saliendo...")
 while True:
     print("MENÚ")
     print("1. Agregar estudiante")
@@ -114,7 +122,7 @@ while True:
         case "6":
             mostrar_todos()
         case "7":
-            print("Programa finalizado. Saliendo...")
+            guardado()
             break
         case _:
             print("¡Opción inválida! Inténtalo nuevamente.")
