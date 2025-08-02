@@ -46,47 +46,45 @@ def consultar_estudiante():
 
 def calcular_promedio():
     print("--Calcular promedio--")
-    idest = input("Ingresa el ID de estudiante: ")
-    if idest in estudiantes:
-        cursos = estudiantes[idest]["cursos"]
-        suma = 0
+    for idest in estudiantes:
+        est = estudiantes[idest]
+        cursos = est["cursos"]
         total = 0
+        suma = 0
         for c in cursos:
             suma += cursos[c]
             total += 1
         if total > 0:
             promedio = suma / total
-            print("El promedio es:", promedio)
-    else:
-        print("Estudiante no encontrado")
+            print(f"{est['nombre']} (ID {idest}) - Promedio: {promedio}")
+        else:
+            print(f"{est['nombre']} (ID {idest}) - No tiene cursos registrados.")
+
 
 def verificar_aprobacion():
     print("--Verificar si aprueba--")
-    idest = input("Ingresa el ID de estudiante: ")
-    if idest in estudiantes:
-        cursos = estudiantes[idest]["cursos"]
-        if not cursos:
-            print("No tiene cursos registrados")
-            return
-        todos_aprobados = True
-        for c in cursos:
-            if cursos[c] < 61:
-                todos_aprobados = False
-                break
-        if todos_aprobados:
-            print("El estudiante aprueba todos los cursos")
+    for idest in estudiantes:
+        est = estudiantes[idest]
+        cursos = est["cursos"]
+        if len(cursos) == 0:
+            print(f"{est['nombre']} (ID {idest}) - No tiene cursos registrados.")
         else:
-            print("El estudiante NO APRUEBA todos los cursos")
-    else:
-        print("Estudiante no encontrado")
+            todos_aprobados = True
+            for curso in cursos:
+                if cursos[curso] < 61:
+                    todos_aprobados = False
+            if todos_aprobados:
+                print(f"{est['nombre']} (ID {idest}) - Aprueba todos los cursos.")
+            else:
+                print(f"{est['nombre']} (ID {idest}) - NO aprueba todos los cursos.")
 
 def mostrar_todos():
     print("--Mostrar todos los estudiantes--")
-    for idest in estudiantes:
-        est = estudiantes[idest]
-        print(f"ID: {idest}, Nombre: {est["nombre"]}, Carrera: {est["carrera"]}")
+    for id_est in estudiantes:
+        est = estudiantes[id_est]
+        print(f"ID: {id_est} - {est['nombre']} - {est['carrera']}")
         for curso in est["cursos"]:
-            print(" -", curso, ":", est["cursos"][curso])
+            print(f"   {curso}: {est['cursos'][curso]}")
 
 def guardado():
     print("\n--Guardado--")
